@@ -37,6 +37,17 @@ public class CustomerController {
 
 	@RequestMapping("/list.html")
 	public ModelAndView customerList() {
+		try
+		{
+			// ************************************************
+			// Response Time problem
+			// ************************************************
+			Thread.sleep(5000);
+		}
+		catch(InterruptedException ex)
+		{
+		   Thread.currentThread().interrupt();
+		}
 		return new ModelAndView("customerlist", "customers",
 				customerRepository.findAll());
 	}
