@@ -35,13 +35,16 @@ public class CustomerConsumerDrivenContractTest {
 
 	@Test
 	public void testGetOne() {
+
 		Collection<Customer> allCustomer = customerClient.findAll();
 		Long id = allCustomer.iterator().next().getCustomerId();
+
 		Customer result = customerClient.getOne(id);
+
 		assertEquals(id.longValue(), result.getCustomerId());
 	}
 
-	@Test
+	@Test()
 	public void testValidCustomerId() {
 		Collection<Customer> allCustomer = customerClient.findAll();
 		Long id = allCustomer.iterator().next().getCustomerId();
